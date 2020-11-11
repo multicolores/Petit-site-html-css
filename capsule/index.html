@@ -3,11 +3,12 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css">
+
     <title>Capsule</title>
   </head>
   <body>
     <header id="home">
-      <nav>
+      <nav class="nav">
         <span><a href="#home">Capsule</a></span>
         <ul>
           <li><a href="#fonctionnement">Fonctionnement</a></li>
@@ -16,29 +17,31 @@
         </ul>
       </nav>
       <div class="text">
-        <h1>Capsule</h1>
-        <h1>Temporelle</h1>
+        <div><h1>Capsule</h1></div>
+        <div><h1>Temporelle</h1></div>
+        <div class="paragraphe">
         <p>Imaginez pouvoir parler avec votre vous du futur, que lui diriez-vous ?</p>
+      </div>
         <button><a href="#essayer">Essayer</a></button>
       </div>
       <img src="photos/header.png" alt="personne regardant holograme">
     </header>
 
     <section class="fonctionnement" id="fonctionnement">
-      <div class="text">
+      <div class="text right">
         <h1>Comment ça fonctionne ?</h1>
         <p>C’est une capsule temporelle virtuel qui peut être utilisé pour enregistrer des souvenirs, des videos et d’autre donné digital qui ne peuvent être vue qu’a un moment prédeterminer dans le future a vous ou vos proches.</p>
       </div>
-      <img src="photos/portal.png" alt="personne rentrant dans un portail temporelle">
+      <img src="photos/portal.png" alt="personne rentrant dans un portail temporelle" class="right">
     </section>
 
     <section class="essayer" id="essayer">
-      <div class="text">
-        <h1>Evoyer vous un email </h1>
+      <div class="text left">
+        <h1>Evoyer vous</h1><h1> un email </h1>
         <p>A une date définie vous reseverez un message venu d’un temp anciens qui ne manqueras pas de vous faire retomber dans cette belle époque. </p>
         <button><a href="https://www.futureme.org/letters/new" target="_blank">Envoyer</a></button>
       </div>
-      <img src="photos/message.png" alt="image telephone">
+      <img src="photos/message.png" alt="image telephone" class="left">
 
     </section>
 
@@ -57,5 +60,10 @@
       </p>
     </div>
   </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+
+  <script src="script.js"></script>
   </body>
 </html>

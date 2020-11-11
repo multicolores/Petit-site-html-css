@@ -3,6 +3,15 @@ $text_color: #212121;
 $segond_color: #0d7377;
 $font_title: "Open Sans";
 
+@mixin reset_position {
+  left: auto;
+  right: auto;
+  bottom: auto;
+  top: auto;
+  margin: 0;
+  padding: 0;
+}
+
 @font-face {
   font-family: "Open Sans";
   src: url("fonts/OpenSans-Bold.ttf");
@@ -11,7 +20,9 @@ $font_title: "Open Sans";
   font-family: Varela;
   src: url("fonts/Varela-Regular.ttf");
 }
-
+title {
+  display: none;
+}
 * {
   margin: 0;
   padding: 0;
@@ -34,13 +45,29 @@ a {
 //   scroll-snap-type: y mandatory;
 // }
 // text div
+.right {
+  transform: translateX(100px);
+  opacity: 0;
+}
+.left {
+  transform: translateX(-100px);
+  opacity: 0;
+}
 .text {
   position: absolute;
   top: 20%;
   width: 30%;
+  div {
+    overflow: hidden;
+    width: 150%;
+  }
+  .paragraphe {
+    width: 100%;
+  }
   h1 {
     font-size: 5.5em;
     font-family: $font_title;
+    width: 150%;
   }
   p {
     font-family: Varela;
@@ -55,9 +82,9 @@ a {
     border: none;
     border-radius: 3px;
     font-size: 1em;
-    transition: 0.5s;
     position: relative;
     &:hover {
+      transition: 0.5s;
       background: $bg_color;
       border: 1px solid $segond_color;
       a {
@@ -104,23 +131,28 @@ header {
         display: flex;
         a {
           color: $text_color;
+          &:hover {
+            color: $segond_color;
+            transition: 0.2s;
+          }
         }
       }
     }
   }
   img {
     position: absolute;
-    right: 0%;
+    right: -1vw;
     width: 60%;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
   }
   .text {
-    left: 8%;
+    left: 8vw;
     top: 20%;
   }
 }
+
 section {
   height: 100vh;
   position: relative;
@@ -179,5 +211,200 @@ footer {
     p {
       margin-bottom: 1%;
     }
+  }
+}
+
+//! responsive
+
+//! je vais use    @include reset;   ca doit etre simpa
+@media screen and (max-width: 1295px) {
+  // header {
+  //   .text {
+  //     h1 {
+  //       font-size: 4.5em;
+  //     }
+  //     p {
+  //       font-size: 1.2em;
+  //     }
+  //   }
+  // }
+  // section {
+  //   .text {
+  //     h1 {
+  //       font-size: 0.5em;
+  //     }
+  //     p {
+  //       font-size: 1.2em;
+  //     }
+  //   }
+  // }
+
+  .text {
+    h1 {
+      font-size: 4.5em;
+    }
+    p {
+      font-size: 1.2em;
+    }
+  }
+  .fonctionnement {
+    img {
+      left: -10%;
+      width: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  header {
+    height: 180vh;
+    img {
+      width: 100%;
+      // z-index: -1;
+      transform: translate(0);
+      bottom: -70%;
+      top: auto;
+    }
+    .text {
+      width: 100%;
+      h1 {
+        font-size: 5.5em;
+      }
+      p {
+        font-size: 1.7em;
+        width: 50%;
+      }
+    }
+  }
+  section {
+    height: 150vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .text {
+      width: 100%;
+      display: block;
+      margin-left: 10%;
+      h1 {
+        font-size: 7vw;
+      }
+    }
+    .right {
+      display: block;
+      position: relative;
+      // left: 50%;
+      // bottom: -50%;
+      // transform: translateX(-50%);
+      width: 120vw;
+      left: auto;
+      @include reset_position();
+      transform: translateY(0);
+    }
+  }
+  .essayer {
+    height: 150vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10%;
+    .text {
+      position: relative;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      @include reset_position();
+
+      p {
+        width: 40%;
+      }
+    }
+    img {
+      position: relative;
+      transform: translateY(6%);
+      width: 60vw;
+      @include reset_position();
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  header {
+    height: 110vh;
+    img {
+      width: 150%;
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -50%;
+    }
+    .text {
+      h1 {
+        font-size: 15vw;
+      }
+      p {
+        font-size: 5vw;
+      }
+    }
+    nav {
+      ul {
+        width: 80vw;
+      }
+      li {
+        font-size: 3vw;
+      }
+      span {
+        font-size: 7vw;
+      }
+    }
+  }
+
+  section {
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transform: translateY(20%);
+    .text {
+      width: 100%;
+      display: block;
+      text-align: center;
+      h1 {
+        text-align: center;
+        font-size: 7vw;
+      }
+      p {
+        width: 170%;
+      }
+    }
+    .right {
+      display: block;
+      position: relative;
+      // left: 50%;
+      // bottom: -50%;
+      // transform: translateX(-50%);
+      width: 120vw;
+      left: auto;
+      @include reset_position();
+      transform: translateY(0);
+    }
+  }
+  .essayer {
+    height: 120vh;
+    img {
+      width: 100%;
+    }
+    .text {
+      p {
+        width: 70%;
+      }
+    }
+  }
+  footer {
+    margin-top: 40%;
   }
 }
